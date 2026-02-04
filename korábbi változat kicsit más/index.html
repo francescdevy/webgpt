@@ -4,49 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Üzleti tanácsadás és digitális megoldások | BusinessCorp</title>
+    <title>BusinessCorp</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Üzleti tanácsadás és digitális megoldások modern cégeknek.">
     <meta name="robots" content="index, follow">
-
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="hu" href="https://domain.hu/hu/" />
-    <link rel="alternate" hreflang="en" href="https://domain.hu/en/" />
-
-    <!-- Nyelvválasztó JS betöltése (linkek kezelése) -->
-    <script src="navLinks.js" defer></script>
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <header class="header transparent">
-        <div class="lang-fade-overlay"></div>
-        <div class="container header-inner">
+    <header class="header">
+        <div class="container">
             <div class="logo">Business<span>Corp</span></div>
-
-            <!-- Navigációs menü helye (dinamikusan töltjük be JS-ből) -->
-            <nav id="navbar">
-                <!-- Navigációs linkek ide kerülnek -->
+            <div class="theme-toggle">🌙</div>
+            <div class="menu-toggle" aria-label="Menü">☰</div>
+            <nav>
+                <a href="#home">Kezdőlap</a>
+                <a href="#services">Szolgáltatások</a>
+                <a href="#contact">Kapcsolat</a>
             </nav>
-            
-            <div class="header-right">
-                <!-- Nyelvválasztó -->
-                <div class="lang-switch" aria-label="Nyelvválasztó">
-                    <!-- Nyelvek -->
-                </div>
-            
-                <!-- Sötét mód váltás -->
-                <div class="theme-toggle" role="button" aria-label="Sötét mód váltása" tabindex="0">🌙</div>
-            
-                <!-- Menü kapcsoló -->
-                <div class="menu-toggle" role="button" aria-label="Navigáció megnyitása" aria-expanded="false" tabindex="0">☰</div>
-            </div>
-
-
         </div>
     </header>
+
 
 
     <!-- HERO -->
@@ -56,18 +36,10 @@
             <p>Professzionális szolgáltatások cégek számára, modern szemlélettel.</p>
             <a href="#contact" class="btn">Kapcsolatfelvétel</a>
         </div>
-        <!-- Hero scroll indicator -->
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-
-
-
     </section>
 
     <!-- SZOLGÁLTATÁSOK -->
     <section class="services container reveal" id="services">
-        <h2>Szolgáltatások</h2>
         <div class="service">
             <h3>Tanácsadás</h3>
             <p>Stratégiai és üzleti tanácsadás a növekedéshez.</p>
@@ -169,15 +141,17 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer-links" id="footer-links">
-            <!-- Footer linkek ide kerülnek -->
+        <div class="container footer-links">
+            <a href="#home">Kezdőlap</a>
+            <a href="#services">Szolgáltatások</a>
+            <a href="#features">Funkciók</a>
+            <a href="#contact">Kapcsolat</a>
         </div>
         <p>© 2026 BusinessCorp | Minden jog fenntartva</p>
     </footer>
 
 
-    <!-- A többi JS fájl késleltetett betöltése -->
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

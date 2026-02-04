@@ -103,7 +103,7 @@ nav .underline {
     height: 2px;
     background: #c62828;
     border-radius: 2px;
-    transition: left 0.4s ease, width 0.4s ease;
+    transition: left 0.3s ease, width 0.3s ease;
 }
 
 /* ===== Language switch ===== */
@@ -125,73 +125,6 @@ nav .underline {
 
 .lang-link:hover {
     color: #c62828;
-}
-
-/* Zászló és téma toggle azonos méretű */
-.lang-link .flag,
-.theme-toggle {
-    height: 24px;
-    /* mindkettő azonos magasság */
-    width: auto;
-    /* arányos szélesség */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Ha túl nagy a toggle ikon, csökkenthetjük */
-.theme-toggle {
-    font-size: 24px;
-    /* megegyező magasság */
-    line-height: 1;
-}
-
-/* Zászló konténer */
-.lang-link .flag {
-    width: 24px;
-    /* négyzetes konténer */
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Maga a SVG, arányos méret */
-.lang-link .flag svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* megtartja az arányt, kitölti a konténert */
-}
-
-/* Téma toggle: ugyanakkora */
-.theme-toggle {
-    width: 24px;
-    height: 24px;
-    font-size: 18px;
-    /* ha kell, finomhangolható */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ===== Language & Theme Hover Animation ===== */
-.lang-link:hover .flag,
-.theme-toggle:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-}
-
-/* Theme toggle mérete egységes a zászlókkal */
-.theme-toggle {
-    width: 24px;
-    height: 24px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* FLAG */
@@ -303,77 +236,6 @@ body.dark .lang-fade-overlay {
     margin-bottom: 30px;
 }
 
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    /* nagyobb touch area mobilra */
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    cursor: pointer;
-}
-
-.scroll-indicator span {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-bottom: 2px solid white;
-    border-right: 2px solid white;
-    transform: rotate(45deg);
-    animation: gentle-float 2s infinite;
-    opacity: 0.7;
-}
-
-/* Pulzáló animáció */
-@keyframes gentle-float {
-
-    0%,
-    100% {
-        transform: rotate(45deg) translateY(0);
-        opacity: 0.7;
-    }
-
-    50% {
-        transform: rotate(45deg) translateY(3px);
-        opacity: 1;
-    }
-}
-
-/* Dark mode fix */
-body.dark .scroll-indicator span {
-    border-color: #eee;
-}
-
-/* Mobil finomítás */
-@media (max-width: 768px) {
-    .scroll-indicator {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-    }
-
-    .scroll-indicator span {
-        width: 14px;
-        height: 14px;
-    }
-}
-
-/* Dark mode fix (ha hero sötét) */
-body.dark .scroll-indicator span {
-    border-color: #eee;
-}
-
-
-
-
 /* ===== Buttons ===== */
 .btn {
     background: #c62828;
@@ -402,7 +264,6 @@ body.dark .scroll-indicator span {
     padding-top: 120px;
     padding-bottom: 80px;
 }
-
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -548,34 +409,16 @@ body.dark .scroll-indicator span {
     color: #ccc;
     text-decoration: none;
     font-size: 14px;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
     position: relative;
     padding: 0 8px;
 }
 
-/* Separator | */
-.footer-links a:not(:last-child)::before {
+.footer-links a::after {
     content: '|';
     position: absolute;
-    right: -8px;
-    /* link paddinghoz igazítva */
+    right: 0;
     color: #555;
-}
-
-/* Underline animáció */
-.footer-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: #c62828;
-    transition: width 0.3s ease;
-}
-
-.footer-links a:hover::after {
-    width: 100%;
 }
 
 .footer-links a:last-child::after {
@@ -584,10 +427,6 @@ body.dark .scroll-indicator span {
 
 .footer-links a:hover {
     color: #c62828;
-}
-
-.footer-links a:hover::after {
-    width: 100%;
 }
 
 /* ===== Reveal animation ===== */
@@ -692,18 +531,6 @@ body.dark .footer-links a::after {
 
     .header-right {
         gap: 10px;
-    }
-
-    /* Mobil: csak ikon, de nagyobb touch area */
-    .lang-link {
-        padding: 8px;
-        /* extra clickable area */
-        border-radius: 6px;
-    }
-
-    .lang-link:hover {
-        background: rgba(198, 40, 40, 0.1);
-        /* finom vizuális visszajelzés */
     }
 }
 
