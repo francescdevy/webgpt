@@ -1,3 +1,48 @@
+:root {
+
+    --c-bg: #f5f5f5;
+    --c-text: #222;
+    --c-text-soft: #555;
+    --c-text-muted: #777;
+    --c-text-light: #ccc;
+
+    --c-white: #ffffff;
+    --c-black: #000000;
+
+    --c-primary: #c62828;
+    --c-primary-hover: #ff5f57;
+
+    --c-header-solid: rgba(18, 18, 18, 0.95);
+    --c-header-transparent: rgba(18, 18, 18, 0);
+
+    --c-surface: #ffffff;
+    --c-surface-dark: #1e1e1e;
+
+    --c-footer: #121212;
+
+    --c-border: #ccc;
+    --c-border-dark: #333;
+
+    --c-shadow-soft: rgba(0, 0, 0, 0.08);
+    --c-shadow-med: rgba(0, 0, 0, 0.1);
+    --c-shadow-strong: rgba(0, 0, 0, 0.2);
+
+    --c-hero-overlay: rgba(0, 0, 0, 0.3);
+}
+
+/* dark mode csak változókat ír felül */
+body.dark {
+
+    --c-bg: #121212;
+    --c-text: #eee;
+    --c-text-soft: #ccc;
+    --c-text-muted: #ccc;
+
+    --c-surface: #1e1e1e;
+    --c-border: #333;
+
+}
+
 /* ===== Alapok ===== */
 * {
     margin: 0;
@@ -11,8 +56,8 @@ html {
 }
 
 body {
-    background: #f5f5f5;
-    color: #222;
+    background: var(--c-bg);
+    color: var(--c-text);
 }
 
 .container {
@@ -51,13 +96,13 @@ body {
 }
 
 .logo {
-    color: white;
+    color: var(--c-white);
     font-size: 24px;
     font-weight: 700;
 }
 
 .logo span {
-    color: #c62828;
+    color: var(--c-primary);
 }
 
 .header-inner {
@@ -82,7 +127,7 @@ nav {
 }
 
 nav a {
-    color: #ccc;
+    color: var(--c-text-light);
     text-decoration: none;
     font-weight: 500;
     position: relative;
@@ -91,7 +136,7 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    color: #c62828;
+    color: var(--c-primary);
     font-weight: 600;
 }
 
@@ -101,7 +146,7 @@ nav .underline {
     left: 0;
     width: 0;
     height: 2px;
-    background: #c62828;
+    background: var(--c-primary);
     border-radius: 2px;
     transition: left 0.4s ease, width 0.4s ease;
 }
@@ -124,7 +169,7 @@ nav .underline {
 }
 
 .lang-link:hover {
-    color: #c62828;
+    color: var(--c-primary);
 }
 
 /* Zászló és téma toggle azonos méretű */
@@ -208,16 +253,16 @@ nav .underline {
 }
 
 .lang-link.active {
-    color: #c62828;
+    color: var(--c-primary);
     font-weight: 600;
 }
 
 .lang-link.active .flag {
-    outline: 1px solid #c62828;
+    outline: 1px solid var(--c-primary);
 }
 
 .lang-sep {
-    color: #555;
+    color: var(--c-text-soft);
 }
 
 /* ===== Mobile: only icon ===== */
@@ -234,7 +279,7 @@ nav .underline {
     left: 0;
     width: 100%;
     height: 100%;
-    background: white;
+    background: var(--c-surface);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -242,20 +287,20 @@ nav .underline {
 }
 
 body.dark .lang-fade-overlay {
-    background: #121212;
+    background: var(--c-footer);
 }
 
 /* ===== Hamburger ===== */
 .menu-toggle {
     display: none;
     font-size: 28px;
-    color: white;
+    color: var(--c-white);
     cursor: pointer;
 }
 
 /* ===== Theme toggle ===== */
 .theme-toggle {
-    color: white;
+    color: var(--c-white);
     cursor: pointer;
     font-size: 20px;
     margin-left: 15px;
@@ -270,7 +315,7 @@ body.dark .lang-fade-overlay {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--c-white);
     overflow: hidden;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
@@ -376,8 +421,8 @@ body.dark .scroll-indicator span {
 
 /* ===== Buttons ===== */
 .btn {
-    background: #c62828;
-    color: white;
+    background: var(--c-primary);
+    color: var(--c-white);
     padding: 14px 30px;
     text-decoration: none;
     font-weight: 600;
@@ -391,8 +436,8 @@ body.dark .scroll-indicator span {
 }
 
 .btn.light {
-    background: white;
-    color: #c62828;
+    background: var(--c-surface);
+    color: var(--c-primary);
 }
 
 /* ===== Sections ===== */
@@ -412,9 +457,9 @@ body.dark .scroll-indicator span {
 }
 
 .service {
-    background: white;
+    background: var(--c-surface);
     padding: 30px;
-    border-left: 5px solid #c62828;
+    border-left: 5px solid var(--c-primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -424,7 +469,7 @@ body.dark .scroll-indicator span {
 }
 
 .service h3 {
-    color: #c62828;
+    color: var(--c-primary);
     margin-bottom: 15px;
 }
 
@@ -439,7 +484,7 @@ body.dark .scroll-indicator span {
 .card {
     display: flex;
     flex-direction: column;
-    background: white;
+    background: var(--c-surface);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -468,18 +513,18 @@ body.dark .scroll-indicator span {
 .card-content h3 {
     margin: 0 0 5px 0;
     font-size: 16px;
-    color: #222;
+    color: var(--c-text);
 }
 
 .card-content p {
     font-size: 14px;
-    color: #555;
+    color: var(--c-text-soft);
     margin-bottom: auto;
 }
 
 .card-link {
     font-size: 13px;
-    color: #555;
+    color: var(--c-text-soft);
     text-decoration: none;
     margin: 15px;
     align-self: flex-start;
@@ -487,7 +532,7 @@ body.dark .scroll-indicator span {
 }
 
 .card-link:hover {
-    color: #c62828;
+    color: var(--c-primary);
     text-decoration: underline;
 }
 
@@ -498,8 +543,8 @@ body.dark .scroll-indicator span {
 
 /* ===== CTA ===== */
 .cta {
-    background: #c62828;
-    color: white;
+    background: var(--c-primary);
+    color: var(--c-white);
     text-align: center;
     padding: 70px 20px;
 }
@@ -514,7 +559,7 @@ body.dark .scroll-indicator span {
 .contact input,
 .contact textarea {
     padding: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--c-border);
     font-size: 14px;
 }
 
@@ -523,14 +568,14 @@ body.dark .scroll-indicator span {
 }
 
 .error {
-    color: #c62828;
+    color: var(--c-primary);
     font-size: 14px;
 }
 
 /* ===== Footer ===== */
 .footer {
-    background: #121212;
-    color: #777;
+    background: var(--c-footer);
+    color: var(--c-text-muted);
     text-align: center;
     padding: 25px 0;
     font-size: 14px;
@@ -545,7 +590,7 @@ body.dark .scroll-indicator span {
 }
 
 .footer-links a {
-    color: #ccc;
+    color: var(--c-text-light);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
@@ -559,7 +604,7 @@ body.dark .scroll-indicator span {
     position: absolute;
     right: -8px;
     /* link paddinghoz igazítva */
-    color: #555;
+    color: var(--c-text-soft);
 }
 
 /* Underline animáció */
@@ -570,7 +615,7 @@ body.dark .scroll-indicator span {
     bottom: -2px;
     width: 0;
     height: 2px;
-    background: #c62828;
+    background: var(--c-primary);
     transition: width 0.3s ease;
 }
 
@@ -583,7 +628,7 @@ body.dark .scroll-indicator span {
 }
 
 .footer-links a:hover {
-    color: #c62828;
+    color: var(--c-primary);
 }
 
 .footer-links a:hover::after {
@@ -604,7 +649,7 @@ body.dark .scroll-indicator span {
 
 /* ===== Dark mode ===== */
 body.dark {
-    background: #121212;
+    background: var(--c-footer);
     color: #eee;
 }
 
@@ -612,8 +657,8 @@ body.dark .service,
 body.dark .card,
 body.dark .contact input,
 body.dark .contact textarea {
-    background: #1e1e1e;
-    color: white;
+    background: var(--c-surface-dark);
+    color: var(--c-white);
     border-color: #333;
 }
 
@@ -622,23 +667,23 @@ body.dark .card-content h3 {
 }
 
 body.dark .card-content p {
-    color: #ccc;
+    color: var(--c-text-light);
 }
 
 body.dark .card-link {
-    color: #ccc;
+    color: var(--c-text-light);
 }
 
 body.dark .card-link:hover {
-    color: #ff5f57;
+    color: var(--c-primary-hover);
 }
 
 body.dark .footer-links a {
-    color: #ccc;
+    color: var(--c-text-light);
 }
 
 body.dark .footer-links a:hover {
-    color: #ff5f57;
+    color: var(--c-primary-hover);
 }
 
 body.dark .footer-links a::after {
@@ -656,7 +701,7 @@ body.dark .footer-links a::after {
         top: 100%;
         left: 0;
         width: 100%;
-        background: #121212;
+        background: var(--c-footer);
         flex-direction: column;
         text-align: center;
         max-height: 0;
