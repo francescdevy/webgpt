@@ -42,6 +42,9 @@
     --radius-sm: 4px;
     --transition-fast: .25s ease;
     --transition-med: .3s ease;
+
+    /* Header height for scroll offset */
+        --header-height: 70px;
 }
 
 /* =====================================================
@@ -68,6 +71,7 @@ body.dark {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -361,6 +365,7 @@ body.dark .scroll-indicator span {
     font-weight: 600;
     border-radius: var(--radius-sm);
     transition: all var(--transition-med);
+    display: inline-block;
 }
 
 .btn:hover {
@@ -379,8 +384,28 @@ body.dark .scroll-indicator span {
 .services,
 .cards,
 .contact {
-    padding-top: 120px;
+    padding-top: 30px;
     padding-bottom: 80px;
+}
+
+#services h2,
+#features h2,
+#akcio h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: var(--c-text);
+}
+
+#services>p,
+#features>p {
+    text-align: center;
+    font-size: 16px;
+    color: var(--c-text-soft);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .services {
@@ -471,6 +496,159 @@ body.dark .scroll-indicator span {
 .card-link:hover {
     color: var(--c-primary);
     text-decoration: underline;
+}
+
+/* =====================================================
+   WHY US SECTION
+===================================================== */
+.why-us {
+    padding: 80px 0;
+}
+
+.why-us-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.why-us h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--c-text);
+}
+
+.why-us .subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--c-text-soft);
+    margin-bottom: 40px;
+}
+
+.benefits-list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.benefits-list li {
+    font-size: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all var(--transition-med);
+}
+
+.benefits-list li:hover {
+    padding-left: 10px;
+    color: var(--c-primary);
+}
+
+.benefits-list .checkmark {
+    color: var(--c-primary);
+    font-weight: 700;
+    font-size: 20px;
+    min-width: 25px;
+}
+
+.why-us-text {
+    text-align: center;
+}
+
+/* =====================================================
+   INDUSTRIES SECTION
+===================================================== */
+.industries {
+    background: var(--c-surface);
+    padding: 80px 0;
+}
+
+.industries h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--c-text);
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.industry-card {
+    background: var(--c-bg);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform var(--transition-med), box-shadow var(--transition-med);
+}
+
+.industry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px var(--c-shadow-med);
+}
+
+.industry-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.industry-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--c-text);
+}
+
+.industry-card p {
+    font-size: 15px;
+    color: var(--c-text-soft);
+}
+
+/* =====================================================
+   ABOUT CTA SECTION
+===================================================== */
+.about-cta {
+    background: var(--c-primary);
+    color: var(--c-white);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about-cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.about-features {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.about-feature {
+    font-size: 18px;
+}
+
+.about-feature strong {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.about-description {
+    max-width: 600px;
+    margin: 20px auto 30px;
+    font-size: 16px;
+    opacity: 0.9;
 }
 
 /* =====================================================
@@ -574,6 +752,10 @@ body.dark .scroll-indicator span {
    MEDIA QUERIES
 ===================================================== */
 @media (max-width: 768px) {
+    :root {
+        --header-height: 60px;
+    }
+    
     .menu-toggle {
         display: block;
         font-size: 28px;
@@ -646,6 +828,28 @@ body.dark .scroll-indicator span {
     .scroll-indicator span {
         width: 14px;
         height: 14px;
+    }
+
+    .why-us h2,
+    .industries h2,
+    .about-cta h2 {
+        font-size: 28px;
+    }
+
+    .benefits-list li {
+        font-size: 16px;
+    }
+
+    .industries-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-features {
+        gap: 30px;
+    }
+
+    .about-feature strong {
+        font-size: 28px;
     }
 }
 
