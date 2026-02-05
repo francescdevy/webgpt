@@ -26,23 +26,58 @@
         <div class="container header-inner">
             <div class="logo">Business<span>Corp</span></div>
 
-            <!-- Navigációs menü helye (dinamikusan töltjük be JS-ből) -->
-            <nav id="navbar">
-                <!-- Navigációs linkek ide kerülnek -->
+            <nav>
+                <a href="#home">Kezdőlap</a>
+                <a href="#services">Szolgáltatások</a>
+                <a href="#features">Funkciók</a>
+                <a href="#contact">Kapcsolat</a>
+                <div class="underline"></div> <!-- ez a sliding underline -->
             </nav>
             
             <div class="header-right">
-                <!-- Nyelvválasztó -->
                 <div class="lang-switch" aria-label="Nyelvválasztó">
-                    <!-- Nyelvek -->
+                    <a href="/hu/" class="lang-link lang-hu" lang="hu" aria-label="Magyar nyelv" aria-current="false">
+            
+                        <!-- HU FLAG -->
+                        <svg class="flag" viewBox="0 0 3 2" role="img" aria-hidden="true">
+                            <rect width="3" height="2" fill="#ffffff" />
+                            <rect width="3" height="0.6667" y="0" fill="#ce2939" />
+                            <rect width="3" height="0.6667" y="1.3333" fill="#477050" />
+                        </svg>
+            
+                        <span class="lang-text">HU</span>
+                    </a>
+            
+                    <span class="lang-sep">|</span>
+            
+                    <a href="/en/" class="lang-link lang-en" lang="en" aria-label="English language" aria-current="false">
+            
+                        <!-- US FLAG -->
+                        <svg class="flag" viewBox="0 0 7410 3900" role="img" aria-hidden="true">
+                            <rect width="7410" height="3900" fill="#b22234" />
+                            <g fill="#ffffff">
+                                <rect y="300" width="7410" height="300" />
+                                <rect y="900" width="7410" height="300" />
+                                <rect y="1500" width="7410" height="300" />
+                                <rect y="2100" width="7410" height="300" />
+                                <rect y="2700" width="7410" height="300" />
+                                <rect y="3300" width="7410" height="300" />
+                            </g>
+                            <rect width="2964" height="2100" fill="#3c3b6e" />
+                        </svg>
+            
+                        <span class="lang-text">EN</span>
+                    </a>
                 </div>
             
-                <!-- Sötét mód váltás -->
+            
+            
+            
                 <div class="theme-toggle" role="button" aria-label="Sötét mód váltása" tabindex="0">🌙</div>
             
-                <!-- Menü kapcsoló -->
                 <div class="menu-toggle" role="button" aria-label="Navigáció megnyitása" aria-expanded="false" tabindex="0">☰</div>
             </div>
+
 
 
         </div>
@@ -169,15 +204,16 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer-links" id="footer-links">
-            <!-- Footer linkek ide kerülnek -->
+        <div class="container footer-links">
+            <a href="#home">Kezdőlap</a>
+            <a href="#services">Szolgáltatások</a>
+            <a href="#features">Funkciók</a>
+            <a href="#contact">Kapcsolat</a>
         </div>
         <p>© 2026 BusinessCorp | Minden jog fenntartva</p>
     </footer>
-
-
-    <!-- A többi JS fájl késleltetett betöltése -->
-    <script src="script.js" defer></script>
+    
+    <script src="script.js"></script>
 </body>
 
 </html>
