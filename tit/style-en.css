@@ -1,0 +1,195 @@
+/* =====================================================
+   EN HERO SECTION
+===================================================== */
+.en-hero {
+    background: linear-gradient(var(--c-hero-overlay), var(--c-hero-overlay));
+    position: relative;
+    height: 80vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--c-white);
+    overflow: hidden;
+}
+
+.en-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("images/hero-en.jpg") center/cover no-repeat;
+    z-index: -1;
+    transform: translateY(var(--parallax, 0)) scale(1.1);
+    transition: transform 0.1s ease-out;
+}
+
+.en-hero h1 {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-lg);
+}
+
+.en-hero p {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-highlights {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding: 0;
+}
+
+.hero-highlights li {
+    font-size: var(--text-base);
+    background: var(--c-white);
+    color: var(--c-primary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius);
+    font-weight: 500;
+}
+
+/* =====================================================
+   SUPPLIER / MANUFACTURER SECTION
+===================================================== */
+.suppliers {
+    background: var(--c-bg);
+    color: var(--c-text);
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-2xl);
+}
+
+.suppliers h2,
+.suppliers h3 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--c-text);
+}
+
+.suppliers p {
+    font-size: var(--text-base);
+    color: var(--c-text-soft);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-xl) auto;
+}
+
+.suppliers .benefits-list {
+    list-style: none;
+    max-width: 900px;
+    margin: 0 auto var(--space-2xl) auto;
+    padding: 0;
+}
+
+.suppliers .benefits-list li {
+    font-size: var(--text-base);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    border-bottom: 1px solid var(--c-border);
+}
+
+.suppliers .benefits-list li .checkmark {
+    color: var(--c-primary);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    min-width: var(--space-xl);
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto var(--space-2xl) auto;
+}
+
+.industries-grid li {
+    background: var(--c-surface);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--c-text-soft);
+}
+
+.brands-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.brands-logos img {
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 10px var(--c-shadow-soft);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.brands-logos img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px var(--c-shadow-med);
+}
+
+.supplier-cta {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.supplier-cta .btn-cta {
+    font-size: var(--text-base);
+}
+
+.supplier-cta p.small {
+    font-size: var(--text-sm);
+    color: var(--c-text-soft);
+    margin-top: var(--space-sm);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buyer-note {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--c-text-soft);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   MEDIA QUERIES
+===================================================== */
+@media (max-width: 768px) {
+    .hero-highlights {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .industries-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brands-logos {
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-highlights li {
+        font-size: var(--text-sm);
+        padding: var(--space-xs) var(--space-sm);
+    }
+}

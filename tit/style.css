@@ -54,7 +54,7 @@
     --space-section: 60px;
 
     /* EGYSÉGES Typography */
-    --txsext-: 13px;
+    --text-xs: 13px;
     --text-sm: 14px;
     --text-base: 16px;
     --text-lg: 18px;
@@ -141,7 +141,7 @@ input:focus,
 textarea:focus,
 select:focus,
 .btn:focus,
-.theme-toggle:focus,
+.btn-cta:focus,
 .menu-toggle:focus {
     outline: 2px solid var(--c-primary);
     outline-offset: 2px;
@@ -426,7 +426,30 @@ body.dark .scroll-indicator span {
 /* =====================================================
    BUTTONS
 ===================================================== */
-.btn {
+.btn{
+    color: var(--c-white);
+    padding: var(--space-md) var(--space-xl);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-base);
+    border-color: var(--c-white);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(198, 40, 40, 0.3);
+}
+
+.btn-cta.light {
+    background: var(--c-surface);
+    color: var(--c-primary);
+}
+.btn-cta {
     background: var(--c-primary);
     color: var(--c-white);
     padding: var(--space-md) var(--space-xl);
@@ -440,12 +463,12 @@ body.dark .scroll-indicator span {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(198, 40, 40, 0.3);
 }
 
-.btn.light {
+.btn-cta.light {
     background: var(--c-surface);
     color: var(--c-primary);
 }

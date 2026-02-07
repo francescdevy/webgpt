@@ -3,62 +3,406 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szerszámok technológia szerint - TIT Kft.</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Forgácsoló szerszámok ipari felhasználásra. Marás, fúrás, esztergálás, menetmegmunkálás - CNC megmunkáláshoz és sorozatgyártáshoz.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords"
+        content="forgácsolás, marás, fúrás, esztergálás, menetmegmunkálás, CNC szerszámok, ipari szerszámok" />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="hu" href="https://honlap.hu/szerszamok/" />
+    <link rel="alternate" hreflang="en" href="https://honlap.hu/en/tools/" />
+
+    <style>
+        /* Szerszámok oldal specifikus stílusok */
+        .tools-hero {
+            padding: calc(var(--header-height) + var(--space-section)) var(--space-lg) var(--space-section);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+        }
+
+        .tools-hero h1 {
+            font-size: var(--text-5xl);
+            margin-bottom: var(--space-lg);
+            color: var(--c-text);
+        }
+
+        .tools-hero .lead {
+            font-size: var(--text-lg);
+            max-width: 900px;
+            margin: 0 auto var(--space-lg);
+            opacity: 0.9;
+            line-height: 1.7;
+            color: var(--c-text);
+        }
+
+        .tools-hero .lead:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .tool-category {
+            max-width: 800px;
+            margin: 0 auto var(--space-section);
+            padding: var(--space-xl);
+            background: var(--c-surface);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--c-primary);
+            transition: all var(--transition);
+        }
+
+        .tool-category:hover {
+            box-shadow: 0 8px 24px var(--c-shadow-med);
+        }
+
+        .tool-category h2 {
+            text-align: left;
+            margin: 0 0 var(--space-md);
+            color: var(--c-primary);
+            font-size: var(--text-3xl);
+        }
+
+        .tool-category p {
+            margin-bottom: var(--space-md);
+            color: var(--c-text);
+        }
+
+        .tool-category .meta {
+            margin-bottom: var(--space-lg);
+            padding-left: 0;
+        }
+
+        .tool-category .meta strong {
+            display: block;
+            margin-bottom: var(--space-sm);
+            color: var(--c-text);
+        }
+
+        .tool-category .meta ul {
+            list-style: disc;
+            padding-left: var(--space-xl);
+            margin: 0;
+        }
+
+        .tool-category .meta li {
+            padding: var(--space-xs) 0;
+            color: var(--c-text-soft);
+        }
+
+        .tool-category .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--c-primary);
+            border: 2px solid var(--c-primary);
+        }
+
+        .tool-category .btn:hover {
+            background: var(--c-primary);
+            color: var(--c-white);
+            transform: translateY(-2px);
+        }
+
+        .support-section .btn {
+            background: transparent;
+            color: var(--c-primary);
+            border: 2px solid var(--c-primary);
+        }
+
+        .support-section .btn:hover {
+            background: var(--c-primary);
+            color: var(--c-white);
+            transform: translateY(-2px);
+        }
+
+        .support-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: var(--space-section) var(--space-lg);
+            text-align: center;
+        }
+
+        .support-section .container {
+            max-width: 700px;
+        }
+
+        .support-section h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .support-section p {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .cta-section {
+            background: var(--c-primary);
+            color: var(--c-white);
+            padding: var(--space-section) var(--space-lg);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--c-white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-section p {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .cta-section ul {
+            list-style: disc;
+            max-width: 500px;
+            margin: 0 auto var(--space-xl);
+            text-align: left;
+            padding-left: var(--space-2xl);
+        }
+
+        .cta-section li {
+            padding: var(--space-xs) 0;
+            font-size: var(--text-lg);
+            color: var(--c-white);
+        }
+
+        body.dark .tools-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+        }
+
+        body.dark .tools-hero h1,
+        body.dark .tools-hero .lead {
+            color: var(--c-text);
+        }
+
+        body.dark .tool-category {
+            background: var(--c-surface-dark);
+        }
+
+        body.dark .support-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+        }
+
+        @media (max-width: 768px) {
+            .tools-hero h1 {
+                font-size: var(--text-4xl);
+            }
+
+            .tool-category {
+                padding: var(--space-lg);
+            }
+
+            .tool-category h2 {
+                font-size: var(--text-2xl);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Forgácsoló szerszámok ipari felhasználásra</h1>
-    <p>A TIT Kft. forgácsoló szerszám kínálata ipari környezetre lett optimalizálva. Megoldásaink megfelelnek a CNC
-        megmunkálás, a sorozatgyártás és az egyedi gyártási feladatok követelményeinek, ahol a pontosság, az
-        ismételhetőség és a kiszámítható teljesítmény alapelvárás.</p>
-    <p>Itt megtalálja a leggyakrabban használt szerszámkategóriákat, rövid ismertetővel, hogy könnyedén navigálhasson a
-        részletes információkhoz.</p>
+    <!-- HEADER -->
+    <header class="header solid">
+        <div class="lang-fade-overlay"></div>
+        <div class="container header-inner">
+            <div class="logo">Tool<span>Corp</span></div>
 
-    <h2>Marás</h2>
-    <p>Precíziós és nagysebességű marószerszámok ipari felhasználásra, stabil teljesítménnyel és hosszú élettartammal.
-        Ideális megoldás kis- és nagysorozatú gyártásra, CNC gépeken történő megmunkáláshoz.</p>
-    <p><strong>Főbb felhasználások:</strong> sík- és zsebmarás, kontúrmarás, nagyolás és simítás, nagy fordulatszámú
-        megmunkálás.</p>
-    <p><a href="/szerszamok/maras/">Tovább a Marás oldalra →</a></p>
+            <nav>
+                <a href="/">Kezdőlap</a>
+                <a href="/szerszamok/" class="active">Szerszámok</a>
+                <a href="/szakmai-utmutatok/">Szakmai útmutatók</a>
+                <a href="/gyartok/">Gyártók</a>
+                <a href="/akciok/">Akciók</a>
+                <a href="/kapcsolat/">Kapcsolat</a>
+                <div class="underline"></div>
+            </nav>
 
-    <h2>Fúrás</h2>
-    <p>Acél, rozsdamentes acél és speciális anyagok precíziós furatkészítéséhez tervezett fúrószerszámok. Pontos és
-        ismételhető furatok CNC és hagyományos gépeken, stabil és megbízható teljesítmény.</p>
-    <p><strong>Tipikus felhasználások:</strong> átmenő- és zsákfuratok, előfúrás, bővítés, sorozatgyártás automatizált
-        környezetben.</p>
-    <p><a href="/szerszamok/furas/">Tovább a Fúrás oldalra →</a></p>
+            <div class="header-right">
+                <div class="lang-switch" aria-label="Nyelvválasztó">
+                    <a href="/szerszamok/" class="lang-link lang-hu active" lang="hu" aria-label="Magyar nyelv"
+                        aria-current="true">
+                        <!-- HU FLAG -->
+                        <svg class="flag" viewBox="0 0 3 2" role="img" aria-hidden="true">
+                            <rect width="3" height="2" fill="#ffffff" />
+                            <rect width="3" height="0.6667" y="0" fill="#ce2939" />
+                            <rect width="3" height="0.6667" y="1.3333" fill="#477050" />
+                        </svg>
+                        <span class="lang-text">HU</span>
+                    </a>
 
-    <h2>Esztergálás</h2>
-    <p>Megbízható esztergaszerszámok külső és belső esztergálási feladatokhoz. Stabil szerszámrögzítés, jó
-        forgácskezelés és kiszámítható élettartam ipari környezetben.</p>
-    <p><strong>Tipikus felhasználások:</strong> külső és belső esztergálás, beszúrás és leszúrás, menetesztergálás.</p>
-    <p><a href="/szerszamok/esztergalas/">Tovább az Esztergálás oldalra →</a></p>
+                    <span class="lang-sep">|</span>
 
-    <h2>Menetmegmunkálás</h2>
-    <p>Menetfúrás és menetmarás bér- vagy gyártóüzemek számára. Stabil, ismételhető folyamatok a gyártási ciklusidő
-        minimalizálására.</p>
-    <p><a href="/szerszamok/menetmegmunkalas/">Tovább a Menetmegmunkálás oldalra →</a></p>
+                    <a href="/en/tools/" class="lang-link lang-en" lang="en" aria-label="English language"
+                        aria-current="false">
+                        <!-- US FLAG -->
+                        <svg class="flag" viewBox="0 0 7410 3900" role="img" aria-hidden="true">
+                            <rect width="7410" height="3900" fill="#b22234" />
+                            <g fill="#ffffff">
+                                <rect y="300" width="7410" height="300" />
+                                <rect y="900" width="7410" height="300" />
+                                <rect y="1500" width="7410" height="300" />
+                                <rect y="2100" width="7410" height="300" />
+                                <rect y="2700" width="7410" height="300" />
+                                <rect y="3300" width="7410" height="300" />
+                            </g>
+                            <rect width="2964" height="2100" fill="#3c3b6e" />
+                        </svg>
+                        <span class="lang-text">EN</span>
+                    </a>
+                </div>
 
-    <h2>Speciális feladatok</h2>
-    <p>Nagyolás, különleges anyagok (titán, rozsdamentes acél, ötvözetek) és egyedi szerszámok. Ezekhez a feladatokhoz
-        is szakmai támogatást nyújtunk, és a megfelelő szerszám kiválasztásában segítünk.</p>
-    <p><a href="/szerszamok/nagyolas/">Tovább a Speciális feladatok oldalra →</a></p>
+                <div class="theme-toggle" role="button" aria-label="Sötét mód váltása" tabindex="0">🌙</div>
+                <div class="menu-toggle" role="button" aria-label="Navigáció megnyitása" aria-expanded="false"
+                    tabindex="0">☰</div>
+            </div>
+        </div>
+    </header>
 
-    <h2>Szakmai támogatás – Hogyan válasszon szerszámot?</h2>
-    <p>Nem biztos benne, melyik szerszám a legmegfelelőbb az adott feladathoz? A szerszámválasztás kritikus a gyártás
-        stabilitása, a ciklusidő és a selejtarány szempontjából.</p>
-    <p><a href="/szakmai-utmutatok/szerszamvalasztasi-utmutato/">Olvassa el a Szerszámválasztási útmutatót →</a></p>
+    <!-- HERO SECTION -->
+    <section class="tools-hero">
+        <h1>Forgácsoló szerszámok ipari felhasználásra</h1>
+        <p class="lead">
+            A TIT Kft. forgácsoló szerszám kínálata ipari környezetre lett optimalizálva. Megoldásaink megfelelnek a CNC
+            megmunkálás, a sorozatgyártás és az egyedi gyártási feladatok követelményeinek, ahol a pontosság, az
+            ismételhetőség és a kiszámítható teljesítmény alapelvárás.
+        </p>
+        <p class="lead">
+            Itt megtalálja a leggyakrabban használt szerszámkategóriákat, rövid ismertetővel, hogy könnyedén
+            navigálhasson a részletes információkhoz.
+        </p>
+    </section>
 
-    <h2>Ajánlatkérés</h2>
-    <p>Egyszerű, gyors és célzott ajánlatkérés:</p>
-    <ul>
-        <li>Megmunkálás típusa</li>
-        <li>Alapanyag</li>
-        <li>Opcionális: gép típusa vagy jelenlegi cikkszám</li>
-    </ul>
-    <p><a href="/kapcsolat/ajanlatkeres/">Ajánlatkérés / Kapcsolat →</a></p>
+    <!-- SZERSZÁM KATEGÓRIÁK -->
+    <section class="container reveal" style="padding-top: var(--space-section);">
 
+        <!-- Marás -->
+        <div class="tool-category">
+            <h2>🔧 Marás</h2>
+            <p>Precíziós és nagysebességű marószerszámok ipari felhasználásra, stabil teljesítménnyel és hosszú
+                élettartammal. Ideális megoldás kis- és nagysorozatú gyártásra, CNC gépeken történő megmunkáláshoz.</p>
+            <div class="meta">
+                <strong>Főbb felhasználások:</strong>
+                <ul>
+                    <li>Sík- és zsebmarás</li>
+                    <li>Kontúrmarás</li>
+                    <li>Nagyolás és simítás</li>
+                    <li>Nagy fordulatszámú megmunkálás</li>
+                </ul>
+            </div>
+            <a href="/szerszamok/maras/" class="btn">
+                Tovább a Marás oldalra →
+            </a>
+        </div>
+
+        <!-- Fúrás -->
+        <div class="tool-category">
+            <h2>⚙️ Fúrás</h2>
+            <p>Acél, rozsdamentes acél és speciális anyagok precíziós furatkészítéséhez tervezett fúrószerszámok. Pontos
+                és ismételhető furatok CNC és hagyományos gépeken, stabil és megbízható teljesítmény.</p>
+            <div class="meta">
+                <strong>Tipikus felhasználások:</strong>
+                <ul>
+                    <li>Átmenő- és zsákfuratok</li>
+                    <li>Előfúrás</li>
+                    <li>Bővítés</li>
+                    <li>Sorozatgyártás automatizált környezetben</li>
+                </ul>
+            </div>
+            <a href="/szerszamok/furas/" class="btn">
+                Tovább a Fúrás oldalra →
+            </a>
+        </div>
+
+        <!-- Esztergálás -->
+        <div class="tool-category">
+            <h2>🔩 Esztergálás</h2>
+            <p>Megbízható esztergaszerszámok külső és belső esztergálási feladatokhoz. Stabil szerszámrögzítés, jó
+                forgácskezelés és kiszámítható élettartam ipari környezetben.</p>
+            <div class="meta">
+                <strong>Tipikus felhasználások:</strong>
+                <ul>
+                    <li>Külső és belső esztergálás</li>
+                    <li>Beszúrás és leszúrás</li>
+                    <li>Menetesztergálás</li>
+                </ul>
+            </div>
+            <a href="/szerszamok/esztergalas/" class="btn">
+                Tovább az Esztergálás oldalra →
+            </a>
+        </div>
+
+        <!-- Menetmegmunkálás -->
+        <div class="tool-category">
+            <h2>🔗 Menetmegmunkálás</h2>
+            <p>Menetfúrás és menetmarás bér- vagy gyártóüzemek számára. Stabil, ismételhető folyamatok a gyártási
+                ciklusidő minimalizálására.</p>
+            <a href="/szerszamok/menetmegmunkalas/" class="btn">
+                Tovább a Menetmegmunkálás oldalra →
+            </a>
+        </div>
+
+        <!-- Speciális feladatok -->
+        <div class="tool-category">
+            <h2>⭐ Speciális feladatok</h2>
+            <p>Nagyolás, különleges anyagok (titán, rozsdamentes acél, ötvözetek) és egyedi szerszámok. Ezekhez a
+                feladatokhoz is szakmai támogatást nyújtunk, és a megfelelő szerszám kiválasztásában segítünk.</p>
+            <a href="/szerszamok/nagyolas/" class="btn">
+                Tovább a Speciális feladatok oldalra →
+            </a>
+        </div>
+
+    </section>
+
+    <!-- SZAKMAI TÁMOGATÁS -->
+    <section class="support-section reveal">
+        <div class="container">
+            <h2>💡 Szakmai támogatás – Hogyan válasszon szerszámot?</h2>
+            <p>
+                Nem biztos benne, melyik szerszám a legmegfelelőbb az adott feladathoz? A szerszámválasztás kritikus a
+                gyártás stabilitása, a ciklusidő és a selejtarány szempontjából.
+            </p>
+            <a href="/szakmai-utmutatok/szerszamvalasztasi-utmutato/" class="btn">
+                Olvassa el a Szerszámválasztási útmutatót →
+            </a>
+        </div>
+    </section>
+
+    <!-- AJÁNLATKÉRÉS CTA -->
+    <section class="cta-section reveal">
+        <div class="container">
+            <h2>Ajánlatkérés</h2>
+            <p>Egyszerű, gyors és célzott ajánlatkérés:</p>
+
+            <ul>
+                <li>Megmunkálás típusa</li>
+                <li>Alapanyag</li>
+                <li>Opcionális: gép típusa vagy jelenlegi cikkszám</li>
+            </ul>
+
+            <a href="/kapcsolat/ajanlatkeres/" class="btn light">
+                Ajánlatkérés / Kapcsolat →
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-links">
+            <a href="/">Kezdőlap</a>
+            <a href="/szerszamok/">Szerszámok</a>
+            <a href="/szakmai-utmutatok/">Szakmai útmutatók</a>
+            <a href="/gyartok/">Gyártók</a>
+            <a href="/akciok/">Akciók</a>
+            <a href="/kapcsolat/">Kapcsolat</a>
+        </div>
+        <p>© 2026 TIT Kft. | Minden jog fenntartva</p>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
 
 </html>
