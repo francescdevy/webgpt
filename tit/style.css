@@ -36,15 +36,33 @@
     --c-nav-mobile-border: #222;
     --c-hover-soft: rgba(198, 40, 40, 0.1);
     --c-scroll-dark: #eee;
+    --c-focus: rgba(198, 40, 40, 0.3);
 
-    /* Safe Design Tokens */
+    /* EGYSÉGES Design Tokens */
     --size-icon: 24px;
-    --radius-sm: 4px;
-    --transition-fast: .25s ease;
-    --transition-med: .3s ease;
+    --radius: 8px;
+    --transition: 0.3s ease;
+    --header-height: 70px;
 
-    /* Header height for scroll offset */
-        --header-height: 70px;
+    /* EGYSÉGES Spacing System (5-10-15-20-30-40) */
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 30px;
+    --space-2xl: 40px;
+    --space-section: 60px;
+
+    /* EGYSÉGES Typography */
+    --txsext-: 13px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 32px;
+    --text-4xl: 36px;
+    --text-5xl: 48px;
 }
 
 /* =====================================================
@@ -90,6 +108,46 @@ body {
 }
 
 /* =====================================================
+   TYPOGRAPHY - EGYSÉGES
+===================================================== */
+h2 {
+    text-align: center;
+    font-size: var(--text-4xl);
+    margin-top: 0;
+    margin-bottom: var(--space-xl);
+    color: var(--c-text);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+    color: var(--c-text);
+    font-weight: 600;
+}
+
+p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+/* =====================================================
+   FOCUS STATES - EGYSÉGES
+===================================================== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.btn:focus,
+.theme-toggle:focus,
+.menu-toggle:focus {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 2px;
+}
+
+/* =====================================================
    HEADER
 ===================================================== */
 .header {
@@ -100,7 +158,7 @@ body {
     z-index: 999;
     display: flex;
     align-items: center;
-    transition: background var(--transition-med), box-shadow var(--transition-med);
+    transition: background var(--transition), box-shadow var(--transition);
 }
 
 .header.transparent {
@@ -117,7 +175,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: var(--space-lg) 0;
 }
 
 .header-inner {
@@ -129,12 +187,12 @@ body {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: var(--space-md);
 }
 
 .logo {
     color: var(--c-white);
-    font-size: 24px;
+    font-size: var(--text-2xl);
     font-weight: 700;
 }
 
@@ -147,7 +205,7 @@ body {
 ===================================================== */
 nav {
     display: flex;
-    gap: 20px;
+    gap: var(--space-lg);
     margin-left: auto;
     margin-right: 40px;
     position: relative;
@@ -158,7 +216,8 @@ nav a {
     text-decoration: none;
     font-weight: 500;
     position: relative;
-    transition: color var(--transition-med);
+    transition: color var(--transition);
+    padding: var(--space-xs);
 }
 
 nav a.active,
@@ -175,7 +234,7 @@ nav .underline {
     height: 2px;
     background: var(--c-primary);
     border-radius: 2px;
-    transition: left .4s ease, width .4s ease;
+    transition: left 0.4s ease, width 0.4s ease;
 }
 
 /* =====================================================
@@ -195,6 +254,7 @@ nav .underline {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--radius);
 }
 
 .lang-link .flag svg {
@@ -206,10 +266,13 @@ nav .underline {
 .theme-toggle {
     width: var(--size-icon);
     height: var(--size-icon);
-    font-size: 18px;
+    font-size: var(--text-lg);
     line-height: 1;
     cursor: pointer;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: transform var(--transition), box-shadow var(--transition);
+    background: none;
+    border: none;
+    color: var(--c-white);
 }
 
 .lang-link:hover .flag,
@@ -228,10 +291,10 @@ nav .underline {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: var(--text-xs);
     color: #aaa;
     text-decoration: none;
-    transition: color var(--transition-med);
+    transition: color var(--transition);
 }
 
 .lang-link:hover {
@@ -257,7 +320,7 @@ nav .underline {
     background: var(--c-surface);
     pointer-events: none;
     opacity: 0;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
     z-index: 9999;
 }
 
@@ -288,22 +351,22 @@ body.dark .lang-fade-overlay {
     background: url("images/hero.jpg") center/cover no-repeat;
     z-index: -1;
     transform: translateY(var(--parallax, 0)) scale(1.1);
-    transition: transform .1s ease-out;
+    transition: transform 0.1s ease-out;
 }
 
 .hero .container {
-    padding: 0 20px;
+    padding: 0 var(--space-lg);
     z-index: 1;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-lg);
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xl);
 }
 
 /* =====================================================
@@ -311,7 +374,7 @@ body.dark .lang-fade-overlay {
 ===================================================== */
 .scroll-indicator {
     position: absolute;
-    bottom: 20px;
+    bottom: var(--space-lg);
     left: 50%;
     transform: translateX(-50%);
     width: 40px;
@@ -321,8 +384,14 @@ body.dark .lang-fade-overlay {
     justify-content: center;
     z-index: 10;
     opacity: 1;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
     cursor: pointer;
+}
+
+.scroll-indicator:focus {
+    outline: 2px solid var(--c-white);
+    outline-offset: 2px;
+    border-radius: var(--radius);
 }
 
 .scroll-indicator span {
@@ -333,7 +402,7 @@ body.dark .lang-fade-overlay {
     border-right: 2px solid var(--c-white);
     transform: rotate(45deg);
     animation: gentle-float 2s infinite;
-    opacity: .7;
+    opacity: 0.7;
 }
 
 body.dark .scroll-indicator span {
@@ -345,7 +414,7 @@ body.dark .scroll-indicator span {
     0%,
     100% {
         transform: rotate(45deg) translateY(0);
-        opacity: .7;
+        opacity: 0.7;
     }
 
     50% {
@@ -360,12 +429,15 @@ body.dark .scroll-indicator span {
 .btn {
     background: var(--c-primary);
     color: var(--c-white);
-    padding: 14px 30px;
+    padding: var(--space-md) var(--space-xl);
     text-decoration: none;
     font-weight: 600;
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-med);
+    font-size: var(--text-base);
+    border-radius: var(--radius);
+    transition: all var(--transition);
     display: inline-block;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -383,26 +455,32 @@ body.dark .scroll-indicator span {
 ===================================================== */
 .services,
 .cards,
-.contact {
-    padding-top: 30px;
-    padding-bottom: 80px;
+.contact,
+.why-us,
+.industries,
+.about-cta,
+.cta {
+    padding-top: var(--space-section);
 }
 
-#services h2,
-#features h2,
-#akcio h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: var(--c-text);
+/* Első section extra padding (hero után) */
+#services {
+    padding-top: calc(var(--space-section) + var(--space-section));
 }
 
-#services>p,
-#features>p {
+/* Section-ok containerrel rendelkeznek */
+#services,
+.about-cta,
+.cta {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+}
+
+.section-intro {
     text-align: center;
-    font-size: 16px;
+    font-size: var(--text-base);
     color: var(--c-text-soft);
-    margin-bottom: 50px;
+    margin-bottom: var(--space-xl);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -411,24 +489,33 @@ body.dark .scroll-indicator span {
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: var(--space-xl);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .service {
     background: var(--c-surface);
-    padding: 30px;
+    padding: var(--space-xl);
     border-left: 5px solid var(--c-primary);
-    transition: transform var(--transition-med), box-shadow var(--transition-med);
+    border-radius: var(--radius);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.service:hover {
+.service:hover,
+.card:hover,
+.industry-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px var(--c-shadow-med);
 }
 
 .service h3 {
     color: var(--c-primary);
-    margin-bottom: 15px;
+}
+
+.service p {
+    color: var(--c-text-soft);
 }
 
 /* =====================================================
@@ -437,7 +524,7 @@ body.dark .scroll-indicator span {
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: var(--space-xl);
     align-items: stretch;
 }
 
@@ -445,14 +532,9 @@ body.dark .scroll-indicator span {
     display: flex;
     flex-direction: column;
     background: var(--c-surface);
-    border-radius: 8px;
+    border-radius: var(--radius);
     overflow: hidden;
-    transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px var(--c-shadow-soft);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .card-image {
@@ -468,29 +550,30 @@ body.dark .scroll-indicator span {
 }
 
 .card-content {
-    padding: 15px;
+    padding: var(--space-lg);
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
 .card-content h3 {
-    margin-bottom: 5px;
-    font-size: 16px;
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-base);
 }
 
 .card-content p {
-    font-size: 14px;
+    font-size: var(--text-sm);
     color: var(--c-text-soft);
     margin-bottom: auto;
 }
 
 .card-link {
-    font-size: 13px;
+    font-size: var(--text-xs);
     color: var(--c-text-soft);
     text-decoration: none;
-    margin: 15px;
-    transition: color var(--transition-med);
+    margin: var(--space-lg);
+    padding: var(--space-xs);
+    transition: color var(--transition);
 }
 
 .card-link:hover {
@@ -501,54 +584,43 @@ body.dark .scroll-indicator span {
 /* =====================================================
    WHY US SECTION
 ===================================================== */
-.why-us {
-    padding: 80px 0;
-}
-
 .why-us-content {
     max-width: 700px;
     margin: 0 auto;
 }
 
-.why-us h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: var(--c-text);
-}
-
 .why-us .subtitle {
     text-align: center;
-    font-size: 18px;
+    font-size: var(--text-lg);
     color: var(--c-text-soft);
-    margin-bottom: 40px;
+    margin-bottom: var(--space-xl);
 }
 
 .benefits-list {
     list-style: none;
-    margin-bottom: 40px;
+    margin-bottom: var(--space-xl);
 }
 
 .benefits-list li {
-    font-size: 18px;
-    padding: 15px 0;
+    font-size: var(--text-lg);
+    padding: var(--space-md) 0;
     border-bottom: 1px solid var(--c-border);
     display: flex;
     align-items: center;
-    gap: 15px;
-    transition: all var(--transition-med);
+    gap: var(--space-md);
+    transition: all var(--transition);
 }
 
 .benefits-list li:hover {
-    padding-left: 10px;
+    padding-left: var(--space-sm);
     color: var(--c-primary);
 }
 
 .benefits-list .checkmark {
     color: var(--c-primary);
     font-weight: 700;
-    font-size: 20px;
-    min-width: 25px;
+    font-size: var(--text-xl);
+    min-width: var(--space-xl);
 }
 
 .why-us-text {
@@ -560,48 +632,39 @@ body.dark .scroll-indicator span {
 ===================================================== */
 .industries {
     background: var(--c-surface);
-    padding: 80px 0;
 }
 
-.industries h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-    color: var(--c-text);
+.industries .container {
+    max-width: 1100px;
 }
 
 .industries-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
+    gap: var(--space-xl);
 }
 
 .industry-card {
     background: var(--c-bg);
-    padding: 40px 30px;
-    border-radius: 8px;
+    padding: var(--space-xl);
+    border-radius: var(--radius);
     text-align: center;
-    transition: transform var(--transition-med), box-shadow var(--transition-med);
-}
-
-.industry-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px var(--c-shadow-med);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .industry-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-lg);
 }
 
 .industry-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-sm);
     color: var(--c-text);
 }
 
 .industry-card p {
-    font-size: 15px;
+    font-size: var(--text-md);
     color: var(--c-text-soft);
 }
 
@@ -611,43 +674,50 @@ body.dark .scroll-indicator span {
 .about-cta {
     background: var(--c-primary);
     color: var(--c-white);
-    padding: 80px 20px;
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-2xl);
     text-align: center;
 }
 
+.about-cta .container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .about-cta h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    color: var(--c-white);
+    margin-top: 0;
 }
 
 .about-cta p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xl);
 }
 
 .about-features {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin: 40px 0;
+    gap: var(--space-2xl);
+    margin: var(--space-xl) 0;
     flex-wrap: wrap;
 }
 
 .about-feature {
-    font-size: 18px;
+    font-size: var(--text-lg);
 }
 
 .about-feature strong {
     display: block;
-    font-size: 32px;
+    font-size: var(--text-3xl);
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: var(--space-xs);
 }
 
 .about-description {
     max-width: 600px;
-    margin: 20px auto 30px;
-    font-size: 16px;
+    margin: var(--space-lg) auto var(--space-xl);
+    font-size: var(--text-base);
     opacity: 0.9;
 }
 
@@ -658,60 +728,80 @@ body.dark .scroll-indicator span {
     background: var(--c-primary);
     color: var(--c-white);
     text-align: center;
-    padding: 70px 20px;
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-2xl);
+}
+
+.cta .container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta h2 {
+    color: var(--c-white);
+    margin-top: 0;
 }
 
 .contact form {
     display: grid;
-    gap: 15px;
+    gap: var(--space-md);
     max-width: 500px;
 }
 
 .contact input,
 .contact textarea {
-    padding: 14px;
+    padding: var(--space-md);
     border: 1px solid var(--c-border);
-    font-size: 14px;
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    transition: border-color var(--transition);
+}
+
+.contact input:hover,
+.contact textarea:hover {
+    border-color: var(--c-primary);
 }
 
 .contact textarea {
     min-height: 120px;
+    resize: vertical;
 }
 
 .error {
     color: var(--c-primary);
-    font-size: 14px;
+    font-size: var(--text-sm);
 }
 
 .footer {
     background: var(--c-footer);
     color: var(--c-text-muted);
     text-align: center;
-    padding: 25px 0;
-    font-size: 14px;
+    padding: var(--space-xl) 0;
+    font-size: var(--text-sm);
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
     flex-wrap: wrap;
 }
 
 .footer-links a {
     color: var(--c-text-light);
     text-decoration: none;
-    font-size: 14px;
+    font-size: var(--text-sm);
     position: relative;
-    padding: 0 8px;
-    transition: color var(--transition-med);
+    padding: var(--space-xs) var(--space-sm);
+    transition: color var(--transition);
 }
 
 .footer-links>a:not(:last-child)::before {
     content: '|';
     position: absolute;
-    right: -8px;
+    right: calc(-1 * var(--space-sm));
     color: var(--c-text-soft);
 }
 
@@ -723,7 +813,7 @@ body.dark .scroll-indicator span {
     width: 0;
     height: 2px;
     background: var(--c-primary);
-    transition: width var(--transition-med);
+    transition: width var(--transition);
 }
 
 .footer-links a:hover {
@@ -740,7 +830,7 @@ body.dark .scroll-indicator span {
 .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: all .8s ease;
+    transition: all 0.8s ease;
 }
 
 .reveal.active {
@@ -754,13 +844,19 @@ body.dark .scroll-indicator span {
 @media (max-width: 768px) {
     :root {
         --header-height: 60px;
+        --space-section: 40px;
+        --text-4xl: 28px;
+        --text-5xl: 34px;
     }
-    
+
     .menu-toggle {
         display: block;
         font-size: 28px;
         color: var(--c-white);
         cursor: pointer;
+        background: none;
+        border: none;
+        padding: var(--space-xs);
     }
 
     nav {
@@ -773,7 +869,7 @@ body.dark .scroll-indicator span {
         text-align: center;
         max-height: 0;
         overflow: hidden;
-        transition: max-height .4s ease;
+        transition: max-height 0.4s ease;
     }
 
     nav.active {
@@ -781,16 +877,8 @@ body.dark .scroll-indicator span {
     }
 
     nav a {
-        padding: 16px 0;
+        padding: var(--space-md) 0;
         border-top: 1px solid var(--c-nav-mobile-border);
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 16px;
     }
 
     .cards-grid {
@@ -803,7 +891,7 @@ body.dark .scroll-indicator span {
     }
 
     .header-right {
-        gap: 10px;
+        gap: var(--space-sm);
     }
 
     .lang-text {
@@ -811,7 +899,7 @@ body.dark .scroll-indicator span {
     }
 
     .lang-link {
-        padding: 8px;
+        padding: var(--space-sm);
         border-radius: 6px;
     }
 
@@ -820,9 +908,9 @@ body.dark .scroll-indicator span {
     }
 
     .scroll-indicator {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
+        width: var(--space-2xl);
+        height: var(--space-2xl);
+        bottom: var(--space-lg);
     }
 
     .scroll-indicator span {
@@ -830,14 +918,8 @@ body.dark .scroll-indicator span {
         height: 14px;
     }
 
-    .why-us h2,
-    .industries h2,
-    .about-cta h2 {
-        font-size: 28px;
-    }
-
     .benefits-list li {
-        font-size: 16px;
+        font-size: var(--text-base);
     }
 
     .industries-grid {
@@ -845,21 +927,21 @@ body.dark .scroll-indicator span {
     }
 
     .about-features {
-        gap: 30px;
+        gap: var(--space-xl);
     }
 
     .about-feature strong {
-        font-size: 28px;
+        font-size: var(--text-2xl);
     }
 }
 
 @media (max-width: 500px) {
     .footer-links {
         flex-direction: column;
-        gap: 8px;
+        gap: var(--space-sm);
     }
 
-    .footer-links a::after {
+    .footer-links>a:not(:last-child)::before {
         content: '';
     }
 }

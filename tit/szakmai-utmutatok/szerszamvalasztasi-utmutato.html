@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Szerszámválasztási útmutató - TIT Kft.</title>
+</head>
+
+<body>
+
+    <h1>Szerszámválasztási útmutató</h1>
+    <p>Ez az útmutató segít a megfelelő forgácsoló szerszám kiválasztásában ipari környezetben. A helyes döntés
+        közvetlen hatással van a gyártás stabilitására, a ciklusidőre és a selejtarányra. <br>
+        Ipari környezetben nem önmagában a szerszám ára, hanem az alkalmazhatósága és élettartama a döntő.
+        <br> <br>
+        Az alábbi szempontok segítenek a helyes döntésben:
+    </p>
+
+    <h2>1. Megmunkálás típusa</h2>
+    <p>Minden művelethez más típusú szerszám szükséges:</p>
+    <ul>
+        <li><strong>Marás:</strong> síkmarás, kontúr- és profilmarás, nagyoló és simító műveletek</li>
+        <li><strong>Fúrás:</strong> átmenő- és zsákfuratok, előfúrás, pontos furatpozicionálás</li>
+        <li><strong>Esztergálás:</strong> külső és belső esztergálás, beszúrás, menetesztergálás</li>
+        <li><strong>Menetmegmunkálás:</strong> menetfúrás és menetmarás, kis és nagy sorozat</li>
+    </ul>
+
+    <h2>2. Megmunkált alapanyag</h2>
+    <p>A különböző anyagokhoz eltérő szerszámgeometria és bevonat szükséges:</p>
+    <ul>
+        <li>Acél, rozsdamentes acél, alumínium</li>
+        <li>Ötvözetek és speciális anyagok</li>
+        <li>Műszaki műanyagok (alkalmazástól függően)</li>
+    </ul>
+
+    <h2>3. Gépkörnyezet</h2>
+    <p>CNC vagy hagyományos gép, fordulatszám-tartomány, merevség mind befolyásolja a szerszám stabil működését.</p>
+
+    <h2>4. Gyártási volumen</h2>
+    <p>Egyedi vagy kis szériás gyártásnál más szempontok érvényesek, mint folyamatos sorozatgyártásnál, ahol a
+        kiszámítható teljesítmény a fő szempont.</p>
+
+    <h2>5. Forgácskezelés és hűtés</h2>
+    <p>A megfelelő forgácskihordás és hűtés csökkenti az állásidőt és növeli a folyamatbiztonságot.</p>
+
+    <h2>6. Szakmai támogatás</h2>
+    <p>Ha nem áll rendelkezésre minden műszaki adat, elegendő a megmunkálási feladat leírása. Kollégáink szakmai alapon
+        segítenek a szerszám kiválasztásában.</p>
+    
+        <form action="/kapcsolat/ajanlatfeldolgozas/" method="post">
+            <label for="tipus">Megmunkálás típusa:</label><br>
+            <select id="tipus" name="tipus" required>
+                <option value="maras">Marás</option>
+                <option value="furas">Fúrás</option>
+                <option value="esztergalas">Esztergálás</option>
+                <option value="menetmegmunkalas">Menetmegmunkálás</option>
+            </select><br><br>
+        
+            <label for="anyag">Alapanyag:</label><br>
+            <input type="text" id="anyag" name="anyag" required><br><br>
+        
+            <label for="gep">Gép típusa (opcionális):</label><br>
+            <input type="text" id="gep" name="gep"><br><br>
+        
+            <label for="cikkszam">Jelenleg használt szerszám / cikkszám (opcionális):</label><br>
+            <input type="text" id="cikkszam" name="cikkszam"><br><br>
+        
+            <label for="nev">Kapcsolattartó neve:</label><br>
+            <input type="text" id="nev" name="nev" required><br><br>
+        
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+        
+            <label for="telefon">Telefon (opcionális):</label><br>
+            <input type="tel" id="telefon" name="telefon"><br><br>
+        
+            <label for="megjegyzes">Megjegyzés / külön igény (opcionális):</label><br>
+            <textarea id="megjegyzes" name="megjegyzes" rows="4"></textarea><br><br>
+        
+            <input type="submit" value="Ajánlatkérés küldése">
+        </form>
+
+</body>
+
+</html>

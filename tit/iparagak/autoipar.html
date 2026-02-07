@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Autóipar - Iparági megoldások | TIT Kft.</title>
+</head>
+
+<body>
+
+    <h1>Autóipar</h1>
+
+    <p>Az autóiparban a gyártás pontossága, ismételhetősége és a rövid ciklusidők kritikusak. Szerszámaink támogatják a
+        karosszéria-, motor- és futómű alkatrészek gyártását a prototípustól a nagyszériás gyártásig.</p>
+
+    <h2>Mit tudunk ebben a technológiában?</h2>
+    <ul>
+        <li>Precíziós marás, fúrás és esztergálás autóipari alkatrészekhez</li>
+        <li>Nagyolás és simítás sorozatgyártásban</li>
+        <li>Különböző profilok és kontúrok kialakítása CNC gépeken</li>
+        <li>Speciális anyagok, mint alumínium, rozsdamentes acél és műanyagok megmunkálása</li>
+    </ul>
+
+    <h2>Alkalmazási területek</h2>
+    <ul>
+        <li>Karosszéria elemek, motoralkatrészek, futómű komponensek</li>
+        <li>Precíziós furatok és menetek</li>
+        <li>Nagy fordulatszámú marás és simítás</li>
+    </ul>
+
+    <h2>Megmunkálható anyagok</h2>
+    <ul>
+        <li>Szerkezeti acélok</li>
+        <li>Rozsdamentes acél</li>
+        <li>Alumínium és színesfémek</li>
+        <li>Műszaki műanyagok (alkalmazástól függően)</li>
+    </ul>
+
+    <h2>Elérhető gyártók</h2>
+    <p><a href="/gyartok.html">Gyártók és márkák →</a></p>
+
+    <h2>Kapcsolódó technológiák</h2>
+    <ul>
+        <li><a href="/szerszamok/maras.html">Marás</a></li>
+        <li><a href="/szerszamok/furas.html">Fúrás</a></li>
+        <li><a href="/szerszamok/esztergalas.html">Esztergálás</a></li>
+        <li><a href="/szerszamok/menetmegmunkalas.html">Menetmegmunkálás</a></li>
+    </ul>
+
+    <h2>Ajánlatkérés</h2>
+    <form action="/kapcsolat/ajanlatfeldolgozas/" method="post">
+        <label for="iparag">Iparág:</label><br>
+        <select id="iparag" name="iparag" required>
+            <option value="autoipar" selected>Autóipar</option>
+            <option value="gepgyartas">Gépgyártás</option>
+            <option value="szerszamgyartas">Szerszámgyártás</option>
+            <option value="cnc-bermegmunkalas">CNC bérmegmunkálás</option>
+        </select><br><br>
+
+        <label for="megoldas">Megmunkálás típusa / igény:</label><br>
+        <input type="text" id="megoldas" name="megoldas" required><br><br>
+
+        <label for="nev">Kapcsolattartó neve:</label><br>
+        <input type="text" id="nev" name="nev" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <input type="submit" value="Ajánlatkérés küldése">
+    </form>
+
+</body>
+
+</html>
